@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fota User Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
+    <link rel="stylesheet" href="../vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../vendor/owl-carousel/css/owl.theme.default.min.css">
+    <link href="../vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="../images/logo.png" alt="">
+                <img class="logo-compact" src="../images/logo-text.png" alt="">
+                <img class="brand-title" src="../images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" style="color: #2c8396">
+                                    <i class="fa fa-sign-out"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="mt-3">
+                        <a href="./index.html">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./deposit.html">
+                            <i class="fa fa-dollar"></i>
+                            <span class="nav-text">Deposit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./withdrawal.html">
+                            <i class="fa fa-credit-card"></i>
+                            <span class="nav-text">Withdraw</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./history.html">
+                            <i class="fa fa-history"></i>
+                            <span class="nav-text">Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./profile.html">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-text">Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+              
+
+<!-- Modal -->
+<div class="modal fade" id="firstDepositModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Choose a Plan to Begin</h5>
+      </div>
+      <div class="modal-body">
+        <div class="basic-form">
+            <form id="depositForm">
+
+                <label>Package</label>
+                <div class="input-group mb-4">
+                    <select id="package" class="form-control" required name="package">
+                        <option selected>-- Select Package --</option>
+                        <option value="gold">Gold</option>
+                        <option value="silver">Silver</option>
+                        <option value="bronze">Bronze</option>
+                    </select>
+                </div>
+                <div class="table-responsive">
+                    <table id="gold" class="table">
+                        <tbody>
+                           <tr>
+                               <td>Monthly Percentage:</td>
+                               <td class="text-right">90%</td>
+                           </tr> 
+                           <tr>
+                                <td>Minimum:</td>
+                                <td class="text-right">$10,000</td>
+                            </tr> 
+                            <tr>
+                                <td>Maximum:</td>
+                                <td class="text-right">$99,999</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                    <table id="silver" class="table">
+                        <tbody>
+                           <tr>
+                               <td>Monthly Percentage:</td>
+                               <td class="text-right">70%</td>
+                           </tr> 
+                           <tr>
+                                <td>Minimum:</td>
+                                <td class="text-right">$5,000</td>
+                            </tr> 
+                            <tr>
+                                <td>Maximum:</td>
+                                <td class="text-right">$9,999</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                    <table id="bronze" class="table">
+                        <tbody>
+                           <tr>
+                               <td>Monthly Percentage:</td>
+                               <td class="text-right">60%</td>
+                           </tr> 
+                           <tr>
+                                <td>Minimum:</td>
+                                <td class="text-right">$500</td>
+                            </tr> 
+                            <tr>
+                                <td>Maximum:</td>
+                                <td class="text-right">$4,999</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div>
+
+                <label>Amount</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="number" class="form-control" min="500" required name="amount">
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+
+                <label>Crypto Currency</label>
+                <div class="input-group mb-4">
+                    <select id="currencies" class="form-control">
+                        
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary col-12">Proceed</button>
+                
+                
+
+            </form>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="emailVerification" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Please Verify Your email</h5>
+        </div>
+        <div class="modal-body">
+            <h6>check your email a verification code has been sent to your registration email</h6>
+            <form id="verifyForm">
+                <div class="form-group">
+                    <input class="form-control" name="code" placeholder="verification code"/>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    submit
+                </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+                <div class="row page-titles mx-0">
+                    <div class="col-12">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome <strong id="pagename"></strong></h4>
+                            <p class="mb-0">Welcome to your Investment dashboard</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-12 p-0">
+                            <div class="card rounded-card">
+                                <div id="marquee">
+                                    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+                                    <div id="coinmarketcap-widget-marquee" coins="1,1027,825,4172,2,512,1958,3635,1321,2205,2280,328,3155,3602,2586,1437,873,2694,1684" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>        
+                                </div>
+                                <!-- <div class="bootstrap-carousel">
+                                    <div class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="../images/slide1.jpg" alt="First slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="../images/slide2.jpg" alt="Second slide">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                            
+                    </div>
+                    
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card rounded--card">
+                            <div class="stat-widget-two card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="stat-content">
+                                            <div class="stat-text">Today Investment </div>
+                                            <div class="stat-digit"> <i class="fa fa-usd"></i><span id="totalInvestment"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card rounded--card">
+                            <div class="stat-widget-two card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="stat-content">
+                                            <div class="stat-text">Daily Income</div>
+                                            <div class="stat-digit"> <i class="fa fa-usd"></i><span id="mincome"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card rounded--card">
+                            <div class="stat-widget-two card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="stat-content">
+                                            <div class="stat-text">Total Profit</div>
+                                            <div class="stat-digit"> <i class="fa fa-usd"></i> <span id="totalprofit"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card rounded--card">
+                            <div class="stat-widget-two card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="stat-content">
+                                            <div class="stat-text">Duration</div>
+                                            <div class="stat-digit">30 <span>Days</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="p-3 mb-4">
+                            <h4 class="added-heading">Spot Balance</h4>
+                            <div id="spotbalance">
+
+                            </div>
+                            
+
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card p-3">
+                            <h4 class="added-heading">Referral Details</h4>
+                                    <div class="form-group row">
+                                        <label class="col-5 col-form-label">Referral ID</label>
+                                        <div class="col-7">
+                                            <input type="text" readonly class="form-control" id="refid" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-5 col-form-label">Referral Link</label>
+                                        <div class="col-7">
+                                            <input type="text" readonly class="form-control" id="reflink" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5" style="color: #868e96;">Referrals</div>
+                                        <div class="col-7">
+                                            <span id="myrefers">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-5" style="color: #868e96;">Reward</div>
+                                        <div class="col-7">
+                                            <span id="myrefearn"></span>
+                                        </div>
+                                    </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="card">
+                            <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="1,1027,825,1839,5426,2010,74" currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>                        </div>
+                    </div>
+                </div> -->
+                
+
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Fota Trade</a> 2018</p>
+            </div>
+        </div>
+
+
+        
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <div class="modal" tabindex="-1" role="dialog" id="refmodel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Referral</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="submitRef">
+                  <div class="form-group">
+                      <label>Referral Code</label>
+                      <input type="text" class="form-control" name="refcode" required />
+                  </div>
+             
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="idont">I Dont have</button>
+
+              <button type="submit" class="btn btn-secondary" >Submit</button>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="WalletModal2">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" id="modalDepositBody">
+                    
+                </div>
+                <div class="modal-footer" style="display: block; text-align: center;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Finish</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+        <script>
+            const copyBtn = document.getElementById('copybtn');
+            const wallet = document.getElementById('wallet');
+            const toolTip = document.querySelector('.tooltiptext');
+            const package = document.querySelector('#package');      
+            
+            package.addEventListener('change', () => {
+                const packValue = package.value;
+                const lists = ["gold", "bronze", "silver"];
+
+            for (let index = 0; index < lists.length; index++) {
+                let pricing = document.getElementById(lists[index]);
+                pricing.classList.remove('active')
+                if(packValue === lists[index]){             
+                    pricing.classList.toggle('active');
+                }
+                
+            }
+
+        })
+        </script>
+
+    <!-- Required vendors -->
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../js/quixnav-init.js"></script>
+    <script src="../js/custom.min.js"></script>
+
+
+    <!-- Vectormap -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morris/morris.min.js"></script>
+
+
+    <script src="../vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+
+    <script src="../vendor/gaugeJS/dist/gauge.min.js"></script>
+
+    <!--  flot-chart js -->
+    <script src="../vendor/flot/jquery.flot.js"></script>
+    <script src="../vendor/flot/jquery.flot.resize.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="../vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+    <!-- Counter Up -->
+    <script src="../vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="../vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="../vendor/jquery.counterup/jquery.counterup.min.js"></script>
+
+
+    <script src="../js/dashboard/dashboard-1.js"></script>
+    <script src="../../assets/lib/axios.js"></script>
+    <script src="../../assets/lib/sweetalert.js"></script>
+    <script src="../js/userApi/index.js"></script>
+    <script src="../js/userApi/deposit.js"></script>
+<script src="//code.tidio.co/nbso7nggmb9hkf4xejcosrhf9jweiofj.js" async></script>
+
+</body>
+
+</html>
