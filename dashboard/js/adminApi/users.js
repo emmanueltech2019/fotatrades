@@ -43,7 +43,32 @@ if (allUsers) {
 }
 
 function deleteUser(id) {
-    console.log(id)
+    Swal.fire({
+        title: 'Do you want to delete this user?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        denyButtonText: `Don't Delete`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            axios({
+                url:`/user/deleteuser/${id}`,
+                method:"delete",
+                headers:{
+                    authorization:`bearer ${token}`
+                }
+            })
+            .then(()=>{
+                Swal.fire('Deleted!', '', 'success')
+                .then(()=>{
+                    location.reload()
+                })
+            })
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
 }
 
 function deposit(id) {
