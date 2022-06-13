@@ -22,17 +22,20 @@ if (allUsers) {
             <td>${user.email}</td>
             <td class="color-primary">$ ${user.balance}</td>
             <td>
-                <button class="btn btn-success btn-sm" onclick='deposit(${id})'>
-                     <i class="fa fa-plus"></i>  Deposit
-                </button>
-                <a href="./edit.html?id=${user._id}">
-                    <button class="btn btn-warning btn-sm mt-2">
-                        <i class="fa fa-eye"></i>  View
+                <div class="inline">
+                    <button class="btn btn-success btn-sm" onclick='deposit(${id})'>
+                    <i class="fa fa-plus"></i>  Deposit
                     </button>
-                </a>
-                    <button class="btn btn-danger btn-sm mb-2 mt-2" onclick='deleteUser(${id})'>
-                        <i class="fa fa-trash"></i>  Delete
-                    </button>   
+                    <a href="./edit.html?id=${user._id}">
+                        <button class="btn btn-warning btn-sm mt-2">
+                            <i class="fa fa-eye"></i>  View
+                        </button>
+                    </a>
+                        <button class="btn btn-danger btn-sm mb-2 mt-2" onclick='deleteUser(${id})'>
+                            <i class="fa fa-trash"></i>  Delete
+                        </button>   
+                </div>
+                
                 
             </td>
         </tr>`
@@ -56,14 +59,12 @@ function deleteUser(id) {
                 url:`/user/deleteuser/${id}`,
                 method:"delete",
                 headers:{
-                    authorization:`bearer ${token}`
+                    authorization:`bearer ${localStorage.getItem("adtoken")}`
                 }
             })
             .then(()=>{
                 Swal.fire('Deleted!', '', 'success')
-                .then(()=>{
-                    location.reload()
-                })
+                .then(()=>{location.reload()})
             })
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')

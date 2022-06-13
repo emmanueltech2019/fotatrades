@@ -19545,3 +19545,6 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   display: table;
   transition: 1s ease-in;
 }
+  td .inline {
+    width: 250px;
+  }
