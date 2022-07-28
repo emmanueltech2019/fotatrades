@@ -1,4 +1,4 @@
-axios.defaults.baseURL=`https://fotatrade.herokuapp.com/api/v1`
+axios.defaults.baseURL=`https://fotaapis.herokuapp.com/api/v1`
 
 let token = localStorage.getItem("adtoken")
 let depositList = document.getElementById("depositList")

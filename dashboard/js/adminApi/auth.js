@@ -1,4 +1,4 @@
-axios.defaults.baseURL="https://fotatrade.herokuapp.com/api/v1/admin"
+axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/admin"
 
 const Toast = Swal.mixin({
     toast: true,
@@ -11,7 +11,7 @@ const Toast = Swal.mixin({
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 })
-  
+
   
 
 let registerForm = document.getElementById("registerForm")

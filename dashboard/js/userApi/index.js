@@ -1,4 +1,4 @@
-axios.defaults.baseURL="https://fotatrade.herokuapp.com/api/v1/user"
+axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/user"
 
 function logout(params) {
     Swal.fire({
@@ -103,7 +103,7 @@ let spotbalance = document.getElementById("spotbalance")
 
 if(spotbalance){
   axios({
-    url:"https://fotatrade.herokuapp.com/api/v1/deposit/findDepositByCurrency",
+    url:"https://fotaapis.herokuapp.com/api/v1/deposit/findDepositByCurrency",
     method:"get",
     headers:{
         authorization:`bearer ${localStorage.getItem("token")}`

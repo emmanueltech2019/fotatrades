@@ -1,4 +1,4 @@
-axios.defaults.baseURL="https://fotatrade.herokuapp.com/api/v1/user"
+axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/user"
 
 
 let transactionList = document.getElementById("transactionList")
