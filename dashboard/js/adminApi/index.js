@@ -1,4 +1,4 @@
-axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/"
+axios.defaults.baseURL="https://fotaapi.devemmy.tech/api/v1/"
 
 let token = localStorage.getItem("adtoken")
 axios({

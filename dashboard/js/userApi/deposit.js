@@ -1,4 +1,4 @@
-// axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/"
+// axios.defaults.baseURL="https://fotaapi.devemmy.tech/api/v1/"
 
 
 
@@ -7,7 +7,7 @@ let depositForm = document.getElementById("depositForm")
 let currenciesHTML = document.getElementById("currencies")
 if (depositForm) {
     axios({
-        url:"https://fotaapis.herokuapp.com/api/v1/wallet/all",
+        url:"https://fotaapi.devemmy.tech/api/v1/wallet/all",
         method:'get'
     })
     .then((res)=>{
@@ -28,7 +28,7 @@ if (depositForm) {
         }
         let token = localStorage.getItem("token")
         axios({
-            url:"https://fotaapis.herokuapp.com/api/v1/deposit",
+            url:"https://fotaapi.devemmy.tech/api/v1/deposit",
             method:"post",
             data,
             headers:{

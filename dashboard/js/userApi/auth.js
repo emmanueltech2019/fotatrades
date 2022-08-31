@@ -1,4 +1,4 @@
-axios.defaults.baseURL="https://fotaapis.herokuapp.com/api/v1/user"
+axios.defaults.baseURL="https://fotaapi.devemmy.tech/api/v1/user"
 
 const Toast = Swal.mixin({
     toast: true,
